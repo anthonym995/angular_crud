@@ -1,0 +1,30 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "firstName": "Anthony",
+      "middleName": "M",
+      "lastName": "suresh",
+      "gender": "Male",
+      "email": "manthonysuresh@gmail.com",
+      "mobile": "9943567950",
+      "dob": "1995-05-28",
+      "address": "363,  south street, Elayankanni, Tiruvannamalai, Tamil Nadu- 606753",
+      "cob": "India",
+      "active": true
+    },
+    {
+      "id": 2,
+      "firstName": "Dinesh",
+      "middleName": null,
+      "lastName": "kulandai yesu",
+      "gender": "Male",
+      "email": "manthonysuresh@gmail.com",
+      "mobile": "9943567950",
+      "dob": "2021-08-05",
+      "address": "363,south street",
+      "cob": "India",
+      "active": false
+    }
+  ]
+}
