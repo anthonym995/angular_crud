@@ -1,7 +1,7 @@
 <div class="navbar navbar-light bg-primary">
     <div class="container-fluid">
 
-        <h1 style="color:aliceblue">CRUD</h1>
+        <h2 style="color:red">CRUD</h2>
 
         <div class="d-flex">
 
@@ -11,46 +11,48 @@
              data-bs-toggle="modal" 
              data-bs-target="#exampleModal" 
              class="btn btn-success"
-             (click)="clickAddEmp()">Add User</button>
+             (click)="clickAddEmp()">Add Details</button>
 
         </div>
 
     </div>
 </div>
 
-<table class="table mt-3">
-    <thead>
-        <tr>
-            <th scope="col"> Id</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Gender</th>
-            <th scope="col">Email Id</th>
-            <th scope="col">Mobile</th>
-            <th scope="col">Active Status</th>
-            <th scope="col">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let row of empData">
-            <td>{{row.id}}</td>
-            <td>{{row.firstName}}</td>
-            <td>{{row.lastName}}</td>
-            <td>{{row.gender}}</td>
-            <td>{{row.email}}</td>
-            <td>{{row.mobile}}</td>
-            <td>
-                <span *ngIf="row.active"><h5 class="text-success">Active</h5></span>
-                <span *ngIf="!row.active"><h5 class="text-danger">InActive</h5></span>
-             </td>
-            <td>
-                <button (click)="onEdit(row)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" >Edit</button>
-                
-                <button (click)="deleteEmp(row)" class="btn btn-danger mx-3">Delete</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="container-fluid">
+    <table class="table table-striped table-hover align-middle mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col"> Id</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Email Id</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Active Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of empData">
+                <td>{{row.id}}</td>
+                <td>{{row.firstName}}</td>
+                <td>{{row.lastName}}</td>
+                <td>{{row.gender}}</td>
+                <td>{{row.email}}</td>
+                <td>{{row.mobile}}</td>
+                <td>
+                    <span *ngIf="row.active"><h5 class="text-success">Active</h5></span>
+                    <span *ngIf="!row.active"><h5 class="text-danger">InActive</h5></span>
+                 </td>
+                <td>
+                    <button (click)="onEdit(row)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" >Edit</button>
+                    
+                    <button (click)="deleteEmp(row)" class="btn btn-danger mx-3">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 
 <!-- Modal -->
