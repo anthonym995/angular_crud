@@ -26,18 +26,23 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getAllEmp();
     this.formValue = new FormGroup({
-      firstName: new FormControl('',[Validators.required,Validators.min(3),Validators.max(4)]),
+      firstName: new FormControl('null',[Validators.required,Validators.minLength(3)]),
       middleName: new FormControl('',[]),
-      lastName: new FormControl('',[]),
-      gender: new FormControl('',[Validators.required]),
+      lastName: new FormControl('null',[Validators.required]),
+      gender: new FormControl('null',[Validators.required]),
       email: new FormControl('',[Validators.required,Validators.email]),
       mobile: new FormControl('',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
       dob: new FormControl('',[Validators.required]),
-      address: new FormControl('',[]),
+      address: new FormControl('',[Validators.required]),
       cob: new FormControl('',[Validators.required]),
-      active: new FormControl('',[Validators.required])
+      active: new FormControl('',[])
     })
+
     
+    
+  }
+  get f() {
+    return this.formValue.controls;
   }
 
   clickAddEmp(){

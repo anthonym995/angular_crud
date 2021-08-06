@@ -1,7 +1,7 @@
 <div class="navbar navbar-light bg-primary">
     <div class="container-fluid">
 
-        <h1 style="color:aliceblue">Demo</h1>
+        <h1 style="color:aliceblue">CRUD</h1>
 
         <div class="d-flex">
 
@@ -58,7 +58,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add deteils</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -68,59 +68,118 @@
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">First Name</label>
                         <input type="text" formControlName="firstName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <small *ngIf="f.firstName.touched && f.firstName.invalid" class="alert">
+                            <small *ngIf="f.firstName.errors?.required" class="text-danger">
+                                Name is required.
+                            </small>
+                            <small *ngIf="f.firstName.errors?.minlength" class="text-danger">
+                                Name must be at least 3 characters long.
+                            </small>
+                        </small>
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Middle Name</label>
+                        <label for="exampleInputEmail1" class="form-label">Middle Name(optional)</label>
                         <input type="text" formControlName="middleName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Last Name</label>
                         <input formControlName="lastName" type="text" class="form-control" id="exampleInputPassword1">
+                        <small *ngIf="f.lastName.touched && f.lastName.invalid" class="alert">
+                            <small *ngIf="f.lastName.errors?.required" class="text-danger">
+                                Name is required.
+                            </small>
+                        </small>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Gender</label>
                         
                         <select formControlName="gender"  class="form-control form-select form-select-sm" aria-label=".form-select-sm example" id="exampleInputPassword1">
-                            <option selected>Open this select menu</option>
+                            <option selected value="">--select--</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Other">Other</option>
-                          </select>
+                        </select>
+                        <small *ngIf="f.gender.touched && f.gender.invalid" class="alert">
+                            <small *ngIf="f.gender.errors?.required" class="text-danger">
+                                Gender is required.
+                            </small>
+                        </small>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Email Id</label>
                         <input formControlName="email" type="email" class="form-control" id="exampleInputPassword1">
+                        <small *ngIf="f.email.touched && f.email.invalid" class="alert">
+                            <small *ngIf="f.email.errors?.required" class="text-danger">
+                                Mail is required.
+                            </small>
+                            <small *ngIf="f.email.errors?.email" class="text-danger">
+                                Please enter valid email i.e.example@gmail.com
+                            </small>
+                        </small>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Mobile Number</label>
                         <input formControlName="mobile" type="text" class="form-control" id="exampleInputPassword1">
+                        <small *ngIf="f.mobile.touched && f.mobile.invalid" class="alert">
+                            <small *ngIf="f.mobile.errors?.required" class="text-danger">
+                                Number is required.
+                            </small>
+                            <small *ngIf="f.mobile.errors?.pattern" class="text-danger">
+                                Please enter valid mobile number 10 digits
+                            </small>
+                        </small>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Date of Birth</label>
                         <input type="date" formControlName="dob" class="form-control">
+                        <small *ngIf="f.dob.touched && f.dob.invalid" class="alert">
+                            <small *ngIf="f.dob.errors?.required" class="text-danger">
+                                Date of birth is required.
+                            </small>
+                            <!-- <small *ngIf="f.mobile.errors?.pattern" class="text-danger">
+                                Please enter valid mobile number 10 digits
+                            </small> -->
+                        </small>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Address</label>
                         <textarea class="form-control"  formControlName="address" id="exampleFormControlTextarea1" rows="1"></textarea>
+                        <small *ngIf="f.address.touched && f.address.invalid" class="alert">
+                            <small *ngIf="f.address.errors?.required" class="text-danger">
+                                Address is required.
+                            </small>
+                            <!-- <small *ngIf="f.mobile.errors?.pattern" class="text-danger">
+                                Please enter valid mobile number 10 digits
+                            </small> -->
+                        </small>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Country of Birth</label>
                         <select formControlName="cob" class="form-select form-select-sm form-control" aria-label=".form-select-sm example" id="exampleInputPassword1">
-                            <option selected>Open this select menu</option>
+                            <option selected value="">--select--</option>
                             <option value="India">India</option>
                             <option value="Singapore">Singapore</option>
                             <option value="Malaysia">Malaysia</option>
                             <option value="USA">USA</option>
                             <option value="UK">UK</option>
                           </select>
+                          <small *ngIf="f.cob.touched && f.cob.invalid" class="alert">
+                            <small *ngIf="f.cob.errors?.required" class="text-danger">
+                                Country of birth is required.
+                            </small>
+                            <!-- <small *ngIf="f.mobile.errors?.pattern" class="text-danger">
+                                Please enter valid mobile number 10 digits
+                            </small> -->
+                        </small>
                     </div>
 
                     <div class="mb-3">
